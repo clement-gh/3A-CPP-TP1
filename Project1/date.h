@@ -22,10 +22,10 @@ namespace date {
         void updateYear(int year);
         void next();
         void back();
-    
+        
     };
-
-    bool isDate(int month, int day);
+    bool isbisextile(int year);
+    bool isDate(int month, int day,int year);
     int getDaysInMonth(int month);
     int dayOfYear(Date d);
     std::string toString(Date d);

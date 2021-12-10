@@ -4,7 +4,7 @@
 
 namespace date {
     Date::Date(int day, int month, int year) : _day(day), _month(month), _year(year) {
-        bool status = isDate(day, month);
+        bool status = isDate(day, month, year);
         assert(status && "Date is not valid");
     }
 
@@ -22,19 +22,21 @@ namespace date {
     }
 
     void Date::updateMonth(int month) {
-        bool status = isDate(_day, month);
+        bool status = isDate(_day, month, _year);
         assert(status == true && "New month is not valid");
         _month = month;
     }
 
     void Date::updateDay(int day) {
-        bool status = isDate(day, _month);
+        bool status = isDate(day, _month, _year);
         assert(status == true && "New day is not valid");
         _day = day;
     }
 
     void Date::updateYear(int year)
     {
+        bool status = isDate(_day, _month, year);
+        assert(status == true && "New day is not valid");
         _year = year;
     }
 
@@ -73,12 +75,20 @@ namespace date {
      *
     */
 
-    bool isDate(int month, int day) {
+    bool isbisextile(int year)
+    {
+        if((year%4==0 && year%100!=0)||year%400){
+            return true;
+        }
+        return false;
+    }
+
+    bool isDate(int day, int month,int year) {
         if ((day < 1) || (day > 31)) return false;
         if ((month < 1) || (month > 12)) return false;
-        if ((month == 2) && (day > 28)) return false;
         if (((month == 4) || (month == 6) ||
             (month == 9) || (month == 11)) && (day > 30)) return false;
+        if (!(isbisextile(year)) && ((month == 2) && (day > 28))) return false;
         return true;
     }
 

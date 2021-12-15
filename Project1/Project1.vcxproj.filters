@@ -15,15 +15,24 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\Desktop\TP1\date.h">
+    <ClInclude Include="reader.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="date.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Desktop\TP1\date.cpp">
+    <ClCompile Include="reader.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Desktop\TP1\test.cpp">
+    <ClCompile Include="date.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="testdate.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="testreader.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>

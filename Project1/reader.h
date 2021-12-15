@@ -18,8 +18,7 @@ public:
 	std::string getfirstname()const;
 	std::string getsurname()const;
 	std::string getid()const;
-	void setfirstname(std::string firstname);
-	void setsurname(std::string surname);
+	void setid(std::string id);
 	std::vector<int> getlistborrowedbook()const;
 	void addlistborrowedbook(int isbnbook); //ajout livre dans la liste
 	 

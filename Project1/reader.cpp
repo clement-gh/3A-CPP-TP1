@@ -19,15 +19,13 @@ namespace reader {
         return _id;
     }
 
-    void reader::Reader::setfirstname(std::string firstname)
+    void Reader::setid(std::string id)
     {
-        _firstname = firstname;
+        _id = id;
     }
 
-    void reader::Reader::setsurname(std::string surname)
-    {
-        _surname = surname;
-    }
+   
+   
     std::vector<int> Reader::getlistborrowedbook() const
     {
         return  _borrowedbooks;

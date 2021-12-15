@@ -146,6 +146,7 @@
     <ClCompile Include="date.cpp" />
     <ClCompile Include="reader.cpp" />
     <ClCompile Include="testdate.cpp" />
+    <ClCompile Include="testreader.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,5 +1,5 @@
 #include "date.h"
-/*
+
 int main(){
 	date::Date d;
 	 
@@ -23,4 +23,4 @@ int main(){
 
 	return 0;
 
-}*/
+}

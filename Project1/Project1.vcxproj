@@ -139,14 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="date.h" />
-    <ClInclude Include="reader.h" />
+    <ClInclude Include="..\..\..\..\Desktop\TP1\date.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="date.cpp" />
-    <ClCompile Include="reader.cpp" />
-    <ClCompile Include="testdate.cpp" />
-    <ClCompile Include="testreader.cpp" />
+    <ClCompile Include="..\..\..\..\Desktop\TP1\date.cpp" />
+    <ClCompile Include="..\..\..\..\Desktop\TP1\test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

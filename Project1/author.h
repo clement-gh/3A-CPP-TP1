@@ -10,7 +10,7 @@ namespace author {
 		public :
 			//constructeur
 			Author( std::string firstname, std::string surname, date::Date birthday ,int id);
-
+			virtual ~Author() = default;
 			//getters
 			int getId() const;
 			std::string getFirstname() const;

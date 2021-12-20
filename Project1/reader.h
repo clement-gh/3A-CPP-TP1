@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <vector>
+#include "book.h"
 namespace reader {
 class Reader
 {
@@ -19,11 +20,10 @@ public:
 	std::string getsurname()const;
 	std::string getid()const;
 	void setid(std::string id);
-	std::vector<int> getlistborrowedbook()const;
+	std::vector<int> getlistborrowedbook();
 	void addlistborrowedbook(int isbnbook); //ajout livre dans la liste
 	
 };
-
 
 };
 

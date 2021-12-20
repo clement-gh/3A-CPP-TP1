@@ -26,20 +26,15 @@ namespace reader {
 
 
 
-    std::vector<int> Reader::getlistborrowedbook() const
+    std::vector<int> Reader::getlistborrowedbook() 
     {
         return  _borrowedbooks;
     }
     void Reader::addlistborrowedbook(int isbnbook)
     {
+
         _borrowedbooks.push_back(isbnbook);
     }
 
-    std::ostream& operator<<(std::ostream& os, const std::vector<int>& vect) {
-
-        for (auto number : vect)
-            os << number << " ";
-        os << std::endl;
-        return os;
-    }
+    
 }

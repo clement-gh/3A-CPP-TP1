@@ -24,8 +24,8 @@ namespace reader {
         _id = id;
     }
 
-   
-   
+
+
     std::vector<int> Reader::getlistborrowedbook() const
     {
         return  _borrowedbooks;
@@ -34,5 +34,12 @@ namespace reader {
     {
         _borrowedbooks.push_back(isbnbook);
     }
-    
+
+    std::ostream& operator<<(std::ostream& os, const std::vector<int>& vect) {
+
+        for (auto number : vect)
+            os << number << " ";
+        os << std::endl;
+        return os;
+    }
 }

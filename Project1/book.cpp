@@ -2,7 +2,7 @@
 
 namespace book {
 	Book::Book(std::string title, author::Author bookAuthor, std::string language, std::string category, date::Date pubDate, int isbn) : _title(title), _bookAuthor(bookAuthor), _language(language), _category(category), _pubDate(pubDate), _isbn(isbn) {
-		
+
 	}
 
 	std::string Book::getTitle() const {

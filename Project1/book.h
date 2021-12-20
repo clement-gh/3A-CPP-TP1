@@ -1,9 +1,8 @@
 #include <string>
-#include "date.h"
+
 #include "author.h"
 
-#ifndef BOOK_H
-#define BOOk_H
+
 
 namespace book {
 	class Book {
@@ -30,4 +29,3 @@ namespace book {
 
 }
 
-#endif

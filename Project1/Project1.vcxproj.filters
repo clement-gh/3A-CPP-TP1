@@ -21,6 +21,12 @@
     <ClInclude Include="date.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="author.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="book.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="reader.cpp">
@@ -33,6 +39,12 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="testreader.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="author.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="book.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>

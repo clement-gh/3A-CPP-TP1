@@ -1,13 +1,7 @@
 #include "date.h"
 #include "reader.h"
 
-std::ostream& operator<<(std::ostream& os, const std::vector<int>& vect) {
-	
-	for (auto number : vect)
-		os << number << " ";
-	os << std::endl;
-	return os;
-}
+
 
 int main() {
 	

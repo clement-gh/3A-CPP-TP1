@@ -16,7 +16,6 @@ namespace author {
 			std::string getFirstname() const;
 			std::string getSurname() const;
 			std::string getBirthday() const;
-
 			std::string getFullname();
 
 		private :

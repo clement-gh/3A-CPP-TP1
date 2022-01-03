@@ -28,4 +28,19 @@ namespace book {
 	int Book::getIsbn() const {
 		return _isbn;
 	}
+	bool Book::bookstatus() const
+	{
+		return _isborrowed;
+	}
+	void Book::setbookstatus(bool status)
+	{
+		_isborrowed = status;
+	}
+	std::string Book::getstatusofbook() const
+	{
+		if (_isborrowed == true) {
+			return " est disponible";
+		}
+		return "est deja emprunte";
+	}
 }

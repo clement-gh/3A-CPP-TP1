@@ -1,6 +1,6 @@
 #include "date.h"
 #include "reader.h"
-
+/*
  std::ostream& operator<<(std::ostream& os, const std::vector<int>& vect) {
 
         for (auto number : vect)
@@ -20,5 +20,7 @@ int main() {
 		std::cout << Tom.getlistborrowedbook();
 
 
+
+
 	return 0;
-}
+}*/

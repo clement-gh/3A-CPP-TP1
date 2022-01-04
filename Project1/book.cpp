@@ -43,6 +43,13 @@ namespace book {
 		}
 		return "est emprunte";
 	}
+	void Book::addlistofborrower(std::string borrower)
+	{
+		_borrowedby.push_back(borrower);
+
+	}
+
+	
 	/*std::string Book::getborrower() const
 	{
 		return _borrowedby;

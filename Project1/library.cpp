@@ -1,7 +1,7 @@
 #include "library.h"
 
 Library::Library(std::vector<book::Book> listofbooks, std::vector<reader::Reader> listofreaders,
-	std::vector<author::Author> listofauthors): _listofbooks(listofbooks), _listofauthors(listofauthors), _listofreaders(listofreaders)
+	std::vector<author::Author> listofauthors, std::vector<borrow::Borrow> listofborrow): _listofbooks(listofbooks), _listofauthors(listofauthors), _listofreaders(listofreaders), _listofborrow(listofborrow)
 {
 }
 
@@ -33,4 +33,13 @@ void Library::setlistofreaders(reader::Reader reader)
 void Library::setlistofauthors(author::Author author)
 {
 	_listofauthors.push_back(author);
+}
+
+std::vector<borrow::Borrow> Library::getlistofborrow() const
+{
+	return std::vector<borrow::Borrow>();
+}
+
+void Library::setlistofborrow(borrow::Borrow borrow)
+{
 }

@@ -1,8 +1,7 @@
 #pragma once
 #include <string>
-//#include "reader.h"
 #include "author.h"
-
+#include <vector>
 
 
 namespace book {
@@ -22,7 +21,7 @@ namespace book {
 			void setbookstatus(bool _isborrowed);
 			std::string getstatusofbook() const;
 			//std::string getborrower()const;
-			//void setborrower(std::string r);
+			void addlistofborrower(std::string borrower);
 
 		private:
 			std::string _title;
@@ -32,7 +31,7 @@ namespace book {
 			date::Date _pubDate;
 			int _isbn;
 			bool _isborrowed=true;
-			//std::string _borrowedby;
+			std::vector<std::string> _borrowedby;
 	};
 
 }

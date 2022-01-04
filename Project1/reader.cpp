@@ -1,5 +1,5 @@
 #include "reader.h"
-#include "borrow.h"
+
 namespace reader {
     reader::Reader::Reader(std::string firstname, std::string surname, std::string id) : _firstname(firstname), _surname(surname), _id(id)
     {
@@ -52,6 +52,7 @@ namespace reader {
             borrow::Borrow B(d, b);
             b.setbookstatus(false);
             B.setreaderid(this->getid());
+            b.addlistofborrower(this->getid()); //ajout du lecteur dans la liste des empreuteurs du livre
                 
         }
     }

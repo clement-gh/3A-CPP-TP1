@@ -1,4 +1,5 @@
 #include "reader.h"
+#include "borrow.h"
 namespace reader {
     reader::Reader::Reader(std::string firstname, std::string surname, std::string id) : _firstname(firstname), _surname(surname), _id(id)
     {
@@ -36,5 +37,15 @@ namespace reader {
         _borrowedbooks.push_back(isbnbook);
     }
 
+    void Reader::borrow(book::Book &b, date::Date d)
+    {
+      
+        b.setbookstatus()
+        b.setborrower(this->getid());
+
+
+    }
+
     
+   
 }

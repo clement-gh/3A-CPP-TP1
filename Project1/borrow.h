@@ -9,7 +9,7 @@
 namespace borrow {
 	class Borrow {
 		public :
-			Borrow(date::Date _borrowingdate, book::Book &b, reader::Reader &r);
+			//Borrow(date::Date _borrowingdate, book::Book &b, std::string r);
 			
 
 			std::string getborrowingDate() const;

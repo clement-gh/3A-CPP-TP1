@@ -21,12 +21,18 @@
 		Tom.addlistborrowedbook(myBook.getIsbn());
 		
 		std::cout << Tom.getfirstname() << " a lu le livre de n isbn:" << std::endl;
+		/* 
 		std::cout << Tom.getlistborrowedbook();
 		std::cout << myBook.getTitle() << myBook.getstatusofbook() << std::endl;
 
-		borrow::Borrow emprunt(date::Date(02, 03, 2020), myBook, Tom);
-		std::cout << myBook.getTitle() << myBook.getstatusofbook() << std::endl;
 
+		borrow::Borrow emprunt(date::Date(02, 03, 2020), myBook, Tom);
+		std::cout << myBook.getTitle() << myBook.getstatusofbook() << std::endl;*/
+
+
+		Tom.borrow(myBook, date::Date(02, 03, 2020));
+
+		std::cout << myBook.getTitle() << myBook.getstatusofbook() << std::endl;
 
 	return 0;
 }

@@ -1,7 +1,7 @@
 #include "borrow.h"
 
 namespace borrow {
-	Borrow::Borrow(date::Date borrowingdate, book::Book &b, reader::Reader &r) : _borrowingdate(borrowingdate), _bookisbn(b.getIsbn()), _readerid(r.getid())
+	Borrow::Borrow(date::Date borrowingdate, std::string isbn , std::string r) : _borrowingdate(borrowingdate), _bookisbn(b.getIsbn()), _readerid(r)
 	{
 		bool status = b.bookstatus();
 		assert(status && "livre déja emprunté impossible de l'emprunter!");

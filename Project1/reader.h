@@ -22,6 +22,8 @@ public:
 	void setid(std::string id);
 	std::vector<int> getlistborrowedbook();
 	void addlistborrowedbook(int isbnbook); //ajout livre dans la liste
+
+	void borrow(book::Book &b, date::Date d);
 	
 };
 

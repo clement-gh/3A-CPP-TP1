@@ -6,53 +6,53 @@ namespace library {
 	{
 	}
 
+	
+		std::vector<book::Book> Library::getlistofbooks() const
+		{
+			return _listofbooks;
+		}
 
-	std::vector<book::Book> Library::getlistofbooks() const
-	{
-		return _listofbooks;
-	}
+		std::vector<reader::Reader> Library::getlistofreaders() const
+		{
+			return _listofreaders;
+		}
 
-	std::vector<reader::Reader> Library::getlistofreaders() const
-	{
-		return _listofreaders;
-	}
+		std::vector<author::Author> Library::getlistofauthors() const
+		{
+			return _listofauthors;
+		}
 
-	std::vector<author::Author> Library::getlistofauthors() const
-	{
-		return _listofauthors;
-	}
+		void Library::setlistofbooks(book::Book book)
+		{
+			_listofbooks.push_back(book);
+		}
 
-	void Library::setlistofbooks(book::Book book)
-	{
-		_listofbooks.push_back(book);
-	}
+		void Library::setlistofreaders(reader::Reader reader)
+		{
+			_listofreaders.push_back(reader);
+		}
 
-	void Library::setlistofreaders(reader::Reader reader)
-	{
-		_listofreaders.push_back(reader);
-	}
+		void Library::setlistofauthors(author::Author author)
+		{
+			_listofauthors.push_back(author);
+		}
 
-	void Library::setlistofauthors(author::Author author)
-	{
-		_listofauthors.push_back(author);
-	}
+		std::vector<borrow::Borrow> Library::getlistofborrow() const
+		{
+			return _listofborrow;
+		}
 
-	std::vector<borrow::Borrow> Library::getlistofborrow() const
-	{
-		return _listofborrow;
-	}
+		void Library::addlistofborrow(borrow::Borrow borrow)
+		{
 
-	void Library::addlistofborrow(borrow::Borrow borrow)
-	{
+			_listofborrow.push_back(borrow);
 
-		_listofborrow.push_back(borrow);
+		}
 
-	}
-
-	void Library::setlistofborrow(std::vector<borrow::Borrow> list)
-	{
-		_listofborrow = list;
-	}
+		void Library::setlistofborrow(std::vector<borrow::Borrow> list)
+		{
+			_listofborrow = list;
+		}
 
 	
 

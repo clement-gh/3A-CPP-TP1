@@ -70,12 +70,26 @@ namespace book {
 		 return false;
 	}
 	
-	
 
 
+	std::ostream& operator<<(std::ostream& os, Book& b)
+	 {
+			os << "Informations sur le Livre : ";
+			os << b.getTitle();
+			os << ", ";
+			os << b.getAutor();
+			os << ", ";
+			os << b.getLanguage();
+			os << ", ";
+			os << b.getCategory();
+			os << ", ";
+			os << b.getPubDate();
+			os << ", ";
+			os << b.getIsbn();
+			return os;
 
-
-
+		}
+	}
 
 	/*std::string Book::getborrower() const
 	{

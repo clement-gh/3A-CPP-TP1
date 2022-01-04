@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-
+#include <string>
 #include "book.h"
 
 
@@ -19,18 +19,18 @@ private:
 	//::vector<borrow::Borrow>  _liblistborrow =  _listofborrow;
 
 public:
-	Reader(std::string firstname, std::string surname, std::string id);
+	Reader(std::string firstname, std::string surname);
 
 	std::string getfirstname()const;
 	std::string getsurname()const;
 	std::string getid()const;
-	void setid(std::string id);
+	void setid();
 	std::vector<int> getlistborrowedbook();
 	void addlistborrowedbook(int isbnbook); //ajout livre dans la liste
 
 	
 };
-
+std::ostream& operator<<(std::ostream& os, Reader& r);
 };
 
 #endif

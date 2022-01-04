@@ -1,9 +1,11 @@
 #include "reader.h"
 
 namespace reader {
-    reader::Reader::Reader(std::string firstname, std::string surname, std::string id) : _firstname(firstname), _surname(surname), _id(id)
+    reader::Reader::Reader(std::string firstname, std::string surname) : _firstname(firstname), _surname(surname)
     {
+        setid();
     }
+
 
     std::string reader::Reader::getfirstname() const
     {
@@ -20,9 +22,12 @@ namespace reader {
         return _id;
     }
 
-    void Reader::setid(std::string id)
+    void Reader::setid()
     {
-        _id = id;
+      
+       std::string firstChar = _firstname.substr(0,1) ; //permet d'avoir id du type cghys à partir de clement en prénom et ghys en nom
+       _id = firstChar + _surname;
+        
     }
 
 
@@ -36,31 +41,17 @@ namespace reader {
 
         _borrowedbooks.push_back(isbnbook);
     }
-    /*
-   
+    
+    std::ostream& operator<<(std::ostream& os, Reader& r) {
+        os << "Informations sur le lecteur : ";
+        os << r.getfirstname();
+        os << ", ";
+        os << r.getsurname();
+        os << ", ";
+        os << r.getid();
 
-    void Reader::restore(book::Book& b)
-    {
-        if (b.bookstatus() == true) {
-            std::cout << "Vous ne pouvez pas emprunter un livre qun'est pas emprunte." << std::endl;
-        }
-        else if ((b.lastborrower(this->getid()))==false) //livre non emprunté par le lecteur
-        {
-            std::cout << "Vous ne n'etes pas la personne qui a emprunté ce livre" << std::endl;
-        }
-        else
-        {
-
-            b.setbookstatus(true);
-         //   b.delborrow();
-        }
-
-
-
+        return os;
 
     }
-    
-
-    */
 }
 

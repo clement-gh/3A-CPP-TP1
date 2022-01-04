@@ -38,7 +38,7 @@ namespace book {
 			bool _isborrowed=true;
 			std::vector<std::string> _borrowedby;
 	};
-
+	std::ostream& operator<<(std::ostream& os, Book& b);
 }
 
 #endif

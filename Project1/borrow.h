@@ -3,17 +3,17 @@
 #include "author.h"
 #include "reader.h"
 
-#ifndef LOAN_H
-#define LOAN_H
+#ifndef BORROW_H
+#define BORROW_H
 
 namespace borrow {
 	class Borrow {
 		public :
-			Borrow(date::Date _borrowingdate, book::Book &b);
+			Borrow(book::Book& b,date::Date _borrowingdate , std::string borrowerid);
 			
 
 			std::string getborrowingDate() const;
-			int getIsbn() const;
+			int getbisbn() const;
 			std::string getborrowerid() const;
 			void setreaderid(std::string id);
 

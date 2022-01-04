@@ -2,8 +2,10 @@
 #include <string>
 #include "author.h"
 #include <vector>
+#include <iostream>
 
-
+#ifndef BOOK_H
+#define BOOK_H
 namespace book {
 	class Book {
 		public:
@@ -23,6 +25,9 @@ namespace book {
 			//std::string getborrower()const;
 			void addlistofborrower(std::string borrower);
 
+			bool lastborrower(std::string borrower );
+
+
 		private:
 			std::string _title;
 			author::Author _bookAuthor;
@@ -36,3 +41,4 @@ namespace book {
 
 }
 
+#endif

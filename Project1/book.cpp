@@ -49,7 +49,34 @@ namespace book {
 
 	}
 
+	bool Book::lastborrower(std::string borrower)
+	{
+		auto it = std::find(_borrowedby.begin(), _borrowedby.end(), borrower);
+
+		 if (it != _borrowedby.end()) {
+			 auto index = std::distance(_borrowedby.begin(), it);
+
+
+
+			 if (index != _borrowedby.size() ) { // si index = dernièreposition alors le borrower est le derrnier emprunteur de ce livre
+				 return true;  //retourne true si le lecteur est dans la liste des emprunteurs
+			 }
+			 else {
+				 return false;
+			 }
+		 }
+		 else
+			 
+		 return false;
+	}
 	
+	
+
+
+
+
+
+
 	/*std::string Book::getborrower() const
 	{
 		return _borrowedby;

@@ -3,6 +3,10 @@
 
 #include "book.h"
 #include "borrow.h"
+
+
+#ifndef READER_H
+#define READER_H
 namespace reader {
 class Reader
 {
@@ -12,7 +16,7 @@ private:
 	std::string _surname; //Nom
 	std::string _id;
 	std::vector<int> _borrowedbooks;
-
+	//::vector<borrow::Borrow>  _liblistborrow =  _listofborrow;
 
 public:
 	Reader(std::string firstname, std::string surname, std::string id);
@@ -25,8 +29,9 @@ public:
 	void addlistborrowedbook(int isbnbook); //ajout livre dans la liste
 
 	void borrow(book::Book &b, date::Date d);
-	
+	void restore(book::Book& b );
 };
 
 };
 
+#endif

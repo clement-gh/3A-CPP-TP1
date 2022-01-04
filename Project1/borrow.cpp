@@ -1,7 +1,7 @@
 #include "borrow.h"
 
 namespace borrow {
-	Borrow::Borrow(book::Book& b, date::Date borrowingdate,  std::string borrowerid) :  _bookisbn(b.getIsbn()), _borrowingdate(borrowingdate),  _borrowerid(borrowerid)
+	Borrow::Borrow(book::Book& b, date::Date borrowingdate,  reader::Reader borrower) :  _bookisbn(b.getIsbn()), _borrowingdate(borrowingdate),  _borrowerid(borrower.getid())
 	{
 		
 	}

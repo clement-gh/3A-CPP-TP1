@@ -1,6 +1,6 @@
-#include "book.h"
+
 #include "borrow.h"
-#include "reader.h"
+
 
 
 
@@ -30,11 +30,11 @@
 		std::cout << myBook.getTitle() << myBook.getstatusofbook() << std::endl;*/
 
 
-		Tom.borrow(myBook, date::Date(02, 03, 2020));
+	//	Tom.borrow(myBook, date::Date(02, 03, 2020));   //ligne fausse
 
 		std::cout << myBook.getTitle() << myBook.getstatusofbook() << std::endl;
 
-		Tom.borrow(myBook, date::Date(02, 03, 2020));
+		//Tom.borrow(myBook, date::Date(02, 03, 2020));
 
 	return 0;
 }

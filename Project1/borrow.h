@@ -1,6 +1,6 @@
 #include <string>
-#include "date.h"
-#include "author.h"
+
+
 #include "reader.h"
 
 #ifndef BORROW_H
@@ -9,7 +9,7 @@
 namespace borrow {
 	class Borrow {
 		public :
-			Borrow(book::Book& b,date::Date _borrowingdate , std::string borrowerid);
+			Borrow(book::Book& b,date::Date _borrowingdate , reader::Reader borrower);
 			
 
 			std::string getborrowingDate() const;

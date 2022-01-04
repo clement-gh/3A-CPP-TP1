@@ -58,7 +58,7 @@ namespace library {
 
 	void Library::delborrow(book::Book b)
 	{
-		auto it = std::find_if(_listofborrow.begin(), _listofborrow.end(), [&b](const borrow::Borrow& obj) {return obj.getbisbn() == b.getIsbn(); });
+		auto it = std::find_if(_listofborrow.begin(), _listofborrow.end(), [&b](const borrow::Borrow& obj) {return obj.getbisbn() == b.getIsbn(); }); // permet de trouver l'emprenu associé au livre b
 
 
 		if (it != _listofborrow.end()) {
@@ -69,20 +69,39 @@ namespace library {
 		}
 
 	}
-	/*
-	void library::delborrow(book::Book b)
+	void Library::borrowbook(book::Book& b, date::Date d, reader::Reader r)
 	{
+		bool status = b.bookstatus();
+		if (b.bookstatus() == false) {
+			std::cout << "Vous ne pouvez pas emprunter un livre qui est deja emprunte." << std::endl;
+		}
+		else
+		{
 
-		auto it = std::find_if(_listofborrow.begin(), _listofborrow.end(), [&b](const borrow::Borrow& obj) {return obj.getbisbn() == b.getIsbn(); });
+			borrow::Borrow B(b, d, r);
+			b.setbookstatus(false);
+			b.addlistofborrower(r.getid()); //ajout du lecteur dans la liste des empreuteurs du livre
 
-
-		if (it != _listofborrow.end()) {
-			auto index = std::distance(_listofborrow.begin(), it);
-
-			auto elemtoremove = _listofborrow.begin() + index;
-			_listofborrow.erase(elemtoremove);
 		}
 
 	}
-	*/
+	void Library::restorebook(book::Book& b, reader::Reader r)
+	{
+		if (b.bookstatus() == true) {
+			std::cout << "Vous ne pouvez pas rendre un livre qui n'est pas emprunte." << std::endl;
+		}
+		else if ((b.lastborrower(r.getid())) == false) //livre non emprunté par le lecteur
+		{
+			std::cout << "Vous ne n'etes pas la personne qui a emprunté ce livre" << std::endl;
+		}
+		else
+		{
+
+			  delborrow(b);
+
+			b.setbookstatus(true);
+
+		}
+	}
+	
 }

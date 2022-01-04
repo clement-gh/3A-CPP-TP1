@@ -2,7 +2,7 @@
 #include <iostream>
 
 #include "book.h"
-#include "borrow.h"
+
 
 
 #ifndef READER_H
@@ -28,8 +28,7 @@ public:
 	std::vector<int> getlistborrowedbook();
 	void addlistborrowedbook(int isbnbook); //ajout livre dans la liste
 
-	void borrow(book::Book &b, date::Date d);
-	void restore(book::Book& b );
+	
 };
 
 };

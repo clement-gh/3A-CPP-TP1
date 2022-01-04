@@ -1,5 +1,5 @@
 #pragma once
-#include "reader.h"
+#include "borrow.h"
 
 #ifndef LIBRARY_H
 #define LIBRARY_H
@@ -37,6 +37,8 @@ namespace library {
 		void addlistofborrow(borrow::Borrow borrow);
 		void setlistofborrow(std::vector<borrow::Borrow> list);
 		void delborrow(book::Book b);
+		void borrowbook(book::Book& b, date::Date d, reader::Reader r);
+		void restorebook(book::Book& b, reader::Reader r);
 	};
 
 }

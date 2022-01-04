@@ -40,10 +40,20 @@ namespace reader {
     void Reader::borrow(book::Book &b, date::Date d)
     {
       
-        b.setbookstatus()
-        b.setborrower(this->getid());
+        
+        
+        bool status = b.bookstatus();
+        if (b.bookstatus() == false) {
+            std::cout << "Vous ne pouvez pas emprunter un livre qui est deja emprunte." << std::endl;
+        }
+        else
+        {
 
-
+            borrow::Borrow B(d, b);
+            b.setbookstatus(false);
+            B.setreaderid(this->getid());
+                
+        }
     }
 
     

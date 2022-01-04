@@ -41,14 +41,14 @@ namespace book {
 		if (_isborrowed == true) {
 			return " est disponible";
 		}
-		return "est deja emprunte";
+		return "est emprunte";
 	}
-	std::string Book::getborrower() const
+	/*std::string Book::getborrower() const
 	{
 		return _borrowedby;
 	}
 	void Book::setborrower(std::string r)
 	{
 		_borrowedby = r;
-	}
+	}*/
 }

@@ -21,8 +21,8 @@ namespace book {
 			bool bookstatus()const;
 			void setbookstatus(bool _isborrowed);
 			std::string getstatusofbook() const;
-			std::string getborrower()const;
-			void setborrower(std::string r);
+			//std::string getborrower()const;
+			//void setborrower(std::string r);
 
 		private:
 			std::string _title;
@@ -32,7 +32,7 @@ namespace book {
 			date::Date _pubDate;
 			int _isbn;
 			bool _isborrowed=true;
-			std::string _borrowedby;
+			//std::string _borrowedby;
 	};
 
 }

@@ -9,17 +9,18 @@
 namespace borrow {
 	class Borrow {
 		public :
-			//Borrow(date::Date _borrowingdate, book::Book &b, std::string r);
+			Borrow(date::Date _borrowingdate, book::Book &b);
 			
 
 			std::string getborrowingDate() const;
 			int getIsbn() const;
-			std::string getreaderid() const;
+			std::string getborrowerid() const;
+			void setreaderid(std::string id);
 
 		private :
 			date::Date _borrowingdate;
 			int _bookisbn;
-			std::string _readerid;
+			std::string _borrowerid;
 	};
 
 }

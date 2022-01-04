@@ -1,12 +1,9 @@
 #include "borrow.h"
 
 namespace borrow {
-	Borrow::Borrow(date::Date borrowingdate, std::string isbn , std::string r) : _borrowingdate(borrowingdate), _bookisbn(b.getIsbn()), _readerid(r)
+	Borrow::Borrow(date::Date borrowingdate, book::Book&b) : _borrowingdate(borrowingdate), _bookisbn(b.getIsbn())
 	{
-		bool status = b.bookstatus();
-		assert(status && "livre déja emprunté impossible de l'emprunter!");
-
-		b.setbookstatus(false);
+		
 	}
 	
 
@@ -19,10 +16,15 @@ namespace borrow {
 		return _bookisbn;
 	}
 
-	std::string Borrow::getreaderid() const
+	std::string Borrow::getborrowerid() const
 	{
-		return _readerid;
+		return _borrowerid;
 	}
 
-	
+	void Borrow::setreaderid(std::string id)
+	{
+		_borrowerid = id;
+	}
+
+
 }

@@ -91,12 +91,4 @@ namespace book {
 		}
 	}
 
-	/*std::string Book::getborrower() const
-	{
-		return _borrowedby;
-	}
-	void Book::setborrower(std::string r)
-	{
-		_borrowedby = r;
-	}*/
-}
+	

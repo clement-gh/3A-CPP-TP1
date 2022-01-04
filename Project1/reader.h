@@ -16,7 +16,7 @@ private:
 	std::string _surname; //Nom
 	std::string _id;
 	std::vector<int> _borrowedbooks;
-	//::vector<borrow::Borrow>  _liblistborrow =  _listofborrow;
+	
 
 public:
 	Reader(std::string firstname, std::string surname);

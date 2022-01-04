@@ -39,6 +39,12 @@ namespace library {
 		void delborrow(book::Book b);
 		void borrowbook(book::Book& b, date::Date d, reader::Reader r);
 		void restorebook(book::Book& b, reader::Reader r);
+
+
+		std::vector<book::Book> allbookofanauthor(author::Author a);
+		double percentageofborrowedbooks();
+		std::vector<std::string> allbooksborrowed(reader::Reader r);
+		std::vector<std::string> rankingofreader();
 	};
 
 }

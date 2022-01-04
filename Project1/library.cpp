@@ -103,5 +103,25 @@ namespace library {
 
 		}
 	}
+
+	std::vector<book::Book> Library::allbookofanauthor(author::Author a)
+	{
+		return std::vector<book::Book>();
+	}
+
+	double Library::percentageofborrowedbooks()
+	{
+		return 0.0;
+	}
+
+	std::vector<std::string> Library::allbooksborrowed(reader::Reader r)
+	{
+		return std::vector<std::string>();
+	}
+
+	std::vector<std::string> Library::rankingofreader()
+	{
+		return std::vector<std::string>();
+	}
 	
 }

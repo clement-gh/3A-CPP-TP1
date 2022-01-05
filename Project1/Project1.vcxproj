@@ -152,10 +152,9 @@
     <ClCompile Include="date.cpp" />
     <ClCompile Include="library.cpp" />
     <ClCompile Include="borrow.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="reader.cpp" />
-    <ClCompile Include="testborrow.cpp" />
     <ClCompile Include="testdate.cpp" />
-    <ClCompile Include="testreader.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

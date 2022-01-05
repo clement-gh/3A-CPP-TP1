@@ -1,10 +1,12 @@
 #include "library.h"
 
 namespace library {
+
 	Library::Library(std::vector<book::Book> listofbooks, std::vector<reader::Reader> listofreaders,
 		std::vector<author::Author> listofauthors, std::vector<borrow::Borrow> listofborrow) : _listofbooks(listofbooks), _listofauthors(listofauthors), _listofreaders(listofreaders), _listofborrow(listofborrow)
 	{
 	}
+
 
 	
 		std::vector<book::Book> Library::getlistofbooks() const
@@ -22,17 +24,34 @@ namespace library {
 			return _listofauthors;
 		}
 
-		void Library::setlistofbooks(book::Book book)
+		void Library::addlistofbooks(book::Book book)
 		{
 			_listofbooks.push_back(book);
 		}
 
-		void Library::setlistofreaders(reader::Reader reader)
+		void Library::setlistbook(std::vector<book::Book> list)
+		{
+			_listofbooks.insert(_listofbooks.end(), list.begin(), list.end());
+		}
+		
+
+		void Library::setlistauthor(std::vector<author::Author> list)
+		{
+			_listofauthors.insert(_listofauthors.end(), list.begin(), list.end());
+		}
+
+		void Library::addlistofreaders(reader::Reader reader)
 		{
 			_listofreaders.push_back(reader);
 		}
 
-		void Library::setlistofauthors(author::Author author)
+		void Library::setlistreader(std::vector<reader::Reader> list)
+		{
+			_listofreaders.insert(_listofreaders.end(), list.begin(), list.end());
+		}
+		
+
+		void Library::addlistofauthors(author::Author author)
 		{
 			_listofauthors.push_back(author);
 		}
@@ -49,11 +68,7 @@ namespace library {
 
 		}
 
-		void Library::setlistofborrow(std::vector<borrow::Borrow> list)
-		{
-			_listofborrow = list;
-		}
-
+		
 	
 
 	void Library::delborrow(book::Book b)
@@ -69,7 +84,7 @@ namespace library {
 		}
 
 	}
-	void Library::borrowbook(book::Book& b, date::Date d, reader::Reader r)
+	void Library::borrowbook(book::Book& b, date::Date d, reader::Reader& r)
 	{
 		bool status = b.bookstatus();
 		if (b.bookstatus() == false) {
@@ -81,11 +96,11 @@ namespace library {
 			borrow::Borrow B(b, d, r);
 			b.setbookstatus(false);
 			b.addlistofborrower(r.getid()); //ajout du lecteur dans la liste des empreuteurs du livre
-
+			r.addlistborrowedbook(b.getIsbn()); //ajout de l'isbn du livre dans la liste des livres empruntés
 		}
 
 	}
-	void Library::restorebook(book::Book& b, reader::Reader r)
+	void Library::restorebook(book::Book& b, reader::Reader& r)
 	{
 		if (b.bookstatus() == true) {
 			std::cout << "Vous ne pouvez pas rendre un livre qui n'est pas emprunte." << std::endl;
@@ -124,4 +139,4 @@ namespace library {
 		return std::vector<std::string>();
 	}
 	
-}
+	};

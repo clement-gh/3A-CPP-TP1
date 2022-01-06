@@ -10,7 +10,7 @@ namespace author {
 	int Author::getId() const {
 		return _id;
 	}
-
+	
 	std::string Author::getFirstname() const {
 		return _firstname;
 	}

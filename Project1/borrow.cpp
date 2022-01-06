@@ -27,4 +27,16 @@ namespace borrow {
 	}
 
 
+	std::ostream& operator<<(std::ostream& os, Borrow& B)
+	{
+		os << "Informations sur l'emprunt : ";
+		os << B.getborrowingDate();
+		os << ", ";
+		os << B.getbisbn();
+		os << ", ";
+		os << B.getborrowerid();
+
+		return os;
+	}
+
 }

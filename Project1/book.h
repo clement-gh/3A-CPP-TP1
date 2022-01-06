@@ -3,7 +3,7 @@
 #include "author.h"
 #include <vector>
 #include <iostream>
-
+  
 #ifndef BOOK_H
 #define BOOK_H
 namespace book {
@@ -14,7 +14,7 @@ namespace book {
 			
 			//getters
 			std::string getTitle() const;
-			std::string getAutor();
+			std::string getbookauthor() const;
 			std::string getLanguage() const;
 			std::string getCategory() const;
 			std::string getPubDate() const;
@@ -30,7 +30,7 @@ namespace book {
 
 		private:
 			std::string _title;
-			author::Author _bookAuthor;
+			std::string _bookAuthor;
 			std::string _language;
 			std::string _category;
 			date::Date _pubDate;
@@ -42,3 +42,6 @@ namespace book {
 }
 
 #endif
+
+//ajouts possibles enum class laguage
+// catégory

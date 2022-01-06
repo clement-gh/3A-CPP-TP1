@@ -16,13 +16,15 @@ namespace borrow {
 			int getbisbn() const;
 			std::string getborrowerid() const;
 			void setreaderid(std::string id);
+			
 
 		private :
 			date::Date _borrowingdate;
 			int _bookisbn;
 			std::string _borrowerid;
 	};
-
+	std::ostream& operator<<(std::ostream& os, Borrow& B);
+	
 }
 
 #endif

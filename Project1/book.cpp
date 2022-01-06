@@ -1,17 +1,18 @@
 #include "book.h"
 
 namespace book {
-	Book::Book(std::string title, author::Author bookAuthor, std::string language, std::string category, date::Date pubDate, int isbn) : _title(title), _bookAuthor(bookAuthor), _language(language), _category(category), _pubDate(pubDate), _isbn(isbn) , _isborrowed(true)
+	Book::Book(std::string title, author::Author bookAuthor, std::string language, std::string category, date::Date pubDate, int isbn) : _title(title), _bookAuthor(bookAuthor.getFullname()), _language(language), _category(category), _pubDate(pubDate), _isbn(isbn) , _isborrowed(true)
 	{
-		//this->setbookstatus(true);
+		
 	}
 
 	std::string Book::getTitle() const {
-		return _title;
+		return _bookAuthor;
 	}
 
-	std::string Book::getAutor() {
-		return _bookAuthor.getFullname();
+std::string Book::getbookauthor() const
+	{
+		return _bookAuthor;
 	}
 
 	std::string Book::getLanguage() const {
@@ -78,7 +79,7 @@ namespace book {
 			os << "Informations sur le Livre : ";
 			os << b.getTitle();
 			os << ", ";
-			os << b.getAutor();
+		//	os << b.getauthor();
 			os << ", ";
 			os << b.getLanguage();
 			os << ", ";

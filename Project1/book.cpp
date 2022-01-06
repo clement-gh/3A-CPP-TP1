@@ -1,8 +1,9 @@
 #include "book.h"
 
 namespace book {
-	Book::Book(std::string title, author::Author bookAuthor, std::string language, std::string category, date::Date pubDate, int isbn) : _title(title), _bookAuthor(bookAuthor), _language(language), _category(category), _pubDate(pubDate), _isbn(isbn) {
-
+	Book::Book(std::string title, author::Author bookAuthor, std::string language, std::string category, date::Date pubDate, int isbn) : _title(title), _bookAuthor(bookAuthor), _language(language), _category(category), _pubDate(pubDate), _isbn(isbn) , _isborrowed(true)
+	{
+		//this->setbookstatus(true);
 	}
 
 	std::string Book::getTitle() const {
@@ -39,9 +40,9 @@ namespace book {
 	std::string Book::getstatusofbook() const
 	{
 		if (_isborrowed == true) {
-			return " est disponible";
+			return this->getTitle() + " est disponible.";
 		}
-		return "est emprunte";
+		return this->getTitle() + " est emprunte.";
 	}
 	void Book::addlistofborrower(std::string borrower)
 	{

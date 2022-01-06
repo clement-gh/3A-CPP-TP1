@@ -7,7 +7,7 @@ namespace book {
 	}
 
 	std::string Book::getTitle() const {
-		return _bookAuthor;
+		return _title;
 	}
 
 std::string Book::getbookauthor() const
@@ -79,7 +79,7 @@ std::string Book::getbookauthor() const
 			os << "Informations sur le Livre : ";
 			os << b.getTitle();
 			os << ", ";
-		//	os << b.getauthor();
+			os << b.getbookauthor();
 			os << ", ";
 			os << b.getLanguage();
 			os << ", ";

@@ -36,17 +36,27 @@ namespace library {
 
 
 		//getteur setteur de la liste d'emprunts
-		std::vector<borrow::Borrow> getlistofborrow() const;
+		std::vector<borrow::Borrow> getlistofborrow() const ;
 		void addlistofborrow(borrow::Borrow borrow);
 		void delborrow(book::Book b);
 		void borrowbook(book::Book& b, date::Date d, reader::Reader& r);
 		void restorebook(book::Book& b, reader::Reader& r);
 
+		//fonctions permettant d'afficher les différentes listes
+		void printlistborrow();
+		void printlistreader();
+		void printlistauthor();
+		void printlistbook();
+
 		//fonctions suplémentaires
-		std::vector<book::Book> allbookofanauthor(author::Author a);
+		void allbookofanauthor(author::Author a);
 		double percentageofborrowedbooks();
 		std::vector<std::string> allbooksborrowed(reader::Reader r);
 		std::vector<std::string> rankingofreader();
 	};
+	std::ostream& operator<<(std::ostream& os, const std::vector<borrow::Borrow> &vect);
+	std::ostream& operator<<(std::ostream& os, const std::vector<reader::Reader>& vect);
+	std::ostream& operator<<(std::ostream& os, const std::vector<author::Author>& vect);
+	std::ostream& operator<<(std::ostream& os, const std::vector<book::Book>& vect);
 };
 	

@@ -3,7 +3,7 @@
 namespace library {
 
 	Library::Library(std::vector<book::Book> listofbooks, std::vector<reader::Reader> listofreaders,
-		std::vector<author::Author> listofauthors, std::vector<borrow::Borrow> listofborrow) : _listofbooks(listofbooks), _listofauthors(listofauthors), _listofreaders(listofreaders), _listofborrow(listofborrow)
+		std::vector<author::Author> listofauthors, std::vector<borrow::Borrow> listofborrow) : _listofbooks(listofbooks), _listofauthors(listofauthors), _listofreaders(listofreaders)
 	{
 	}
 
@@ -73,7 +73,7 @@ namespace library {
 
 	void Library::delborrow(book::Book b)
 	{
-		auto it = std::find_if(_listofborrow.begin(), _listofborrow.end(), [&b](const borrow::Borrow& obj) {return obj.getbisbn() == b.getIsbn(); }); // permet de trouver l'emprenu associé au livre b
+		auto it = std::find_if(_listofborrow.begin(), _listofborrow.end(), [&b](const borrow::Borrow& obj) {return obj.getbisbn() == b.getIsbn(); }); // permet de trouver l'emprenunt associé au livre b
 
 
 		if (it != _listofborrow.end()) {
@@ -94,6 +94,7 @@ namespace library {
 		{
 
 			borrow::Borrow B(b, d, r);
+			addlistofborrow(B);
 			b.setbookstatus(false);
 			b.addlistofborrower(r.getid()); //ajout du lecteur dans la liste des empreuteurs du livre
 			r.addlistborrowedbook(b.getIsbn()); //ajout de l'isbn du livre dans la liste des livres empruntés
@@ -115,14 +116,96 @@ namespace library {
 			  delborrow(b);
 
 			b.setbookstatus(true);
-
+			std::cout << b.getTitle() << " a ete rendu." << std::endl;
 		}
 	}
 
-	std::vector<book::Book> Library::allbookofanauthor(author::Author a)
+	
+
+	void Library::printlistborrow()
 	{
-		return std::vector<book::Book>();
+		if (_listofborrow.size() == 0) {
+			std::cout << "aucun emprunts en cours"<< std::endl;
+		}
+		else {
+			std::cout << _listofborrow << std::endl;
+		}
+
 	}
+	
+	void Library::printlistreader()
+	{
+		std::cout << _listofreaders << std::endl;
+	}
+
+	void Library::printlistauthor()
+	{
+		std::cout << _listofauthors << std::endl;
+	}
+
+	void Library::printlistbook()
+	{
+		
+		std::cout << _listofbooks << std::endl;
+	}
+	
+	
+	std::ostream& operator<<(std::ostream& os, const std::vector<borrow::Borrow>& vect)
+	{
+		for (auto d : vect) 
+			os << d;
+		for (auto it = vect.begin(); it != vect.end(); ++it) {
+		os << " ";
+		}
+
+		
+		return os;
+	}
+	std::ostream& operator<<(std::ostream& os, const std::vector<reader::Reader>& vect) {
+		for (auto d : vect)
+			os << d;
+		for (auto it = vect.begin(); it != vect.end(); ++it) {
+			os << " ";
+		}
+
+
+		return os;
+	}
+	std::ostream& operator<<(std::ostream& os, const std::vector<author::Author>& vect) {
+		for (auto d : vect)
+			os << d;
+		for (auto it = vect.begin(); it != vect.end(); ++it) {
+			os << " ";
+		}
+
+
+		return os;
+	}
+	std::ostream& operator<<(std::ostream& os, const std::vector<book::Book>& vect) {
+		for (auto d : vect)
+			os << d;
+		for (auto it = vect.begin(); it != vect.end(); ++it) {
+			os << " ";
+		}
+
+
+		return os;
+	}
+	//auto i = std::find_if(_listofbooks.begin(), _listofbooks.end(), [&a](const book::Book& book) {return book.getbookauthor() == a.getFullname(); });
+
+	void Library::allbookofanauthor(author::Author a)
+	{
+	
+
+		for (auto i = 0; i != _listofbooks.size(); i++) {
+			if (a.getFullname() == _listofbooks.at(i).getbookauthor())
+				std::cout << _listofbooks.at(i) << std::endl;
+		}
+
+		
+		
+	}
+		
 
 	double Library::percentageofborrowedbooks()
 	{
@@ -138,5 +221,4 @@ namespace library {
 	{
 		return std::vector<std::string>();
 	}
-	
-	};
+};

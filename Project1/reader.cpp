@@ -60,6 +60,7 @@ namespace reader {
         os << ", ";
         os << r.getid();
         os << " ";
+      
         return os;
 
     }

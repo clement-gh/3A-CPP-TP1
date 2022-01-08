@@ -35,7 +35,7 @@ namespace borrow {
 		os << B.getbisbn();
 		os << ", ";
 		os << B.getborrowerid();
-
+		os << std::endl;
 		return os;
 	}
 

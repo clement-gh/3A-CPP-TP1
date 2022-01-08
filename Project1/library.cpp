@@ -98,7 +98,7 @@ namespace library {
 
 			borrow::Borrow B(b, d, r);
 			addlistofborrow(B);
-			
+			b.setbookstatus(false);
 			//cette boucle permet de modifier le satus du livre dans la liste de la bibliothèque sinon le satus et modifié uniquement dans le livre "original" et pas dans la version qui est dans la liste 
 			//ceci aurait aussi pu etre réglé en passant par des referances 
 			for (auto i = 0; i < (_listofbooks).size(); i++) {
@@ -129,7 +129,7 @@ namespace library {
 		{
 
 			  delborrow(b);
-			 
+			 b.setbookstatus(true);
 			std::cout << b.getTitle() << " a ete rendu." << std::endl;
 			
 			//cf commentaire de la meme boucle dans la fonction borrow ci dessus
@@ -227,7 +227,7 @@ namespace library {
 
 	void Library::allbookofanauthor(author::Author a)
 	{
-	
+		std::cout << "Voici tous les livre de " << a.getFullname()<<std::endl;
 
 		for (auto i = 0; i != _listofbooks.size(); i++) {
 			if (a.getFullname() == _listofbooks.at(i).getbookauthor())

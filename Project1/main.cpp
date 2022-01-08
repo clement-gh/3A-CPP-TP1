@@ -1,20 +1,13 @@
-#include "library.h"
 
-std::ostream& operator<<(std::ostream& os, const std::vector<int>& vect) {
 
-	for (auto number : vect)
-		os << number << " ";
-	os << std::endl;
-	return os;
-}
-
+#include"library.h"
 int main() {
-	
-	author::Author  jkrowling("Joanne", "Rowling", date::Date(31, 7, 1965), 1), 
-				jdicker("Joël", "Dicker", date::Date(16, 6, 1995), 2), 
-				dadams("Douglas", "Adams", date::Date(2, 3, 2000), 3),
-				jrrtolkien("John Ronald Reuel", "Tolkien", date::Date(03, 01, 1892), 4) ,
-				acamus("Albert", "Camus", date::Date(7,8, 1913), 5);
+	//déclaration des objets
+	author::Author  jkrowling("Joanne", "Rowling", date::Date(31, 7, 1965), 1),
+		jdicker("Joël", "Dicker", date::Date(16, 6, 1995), 2),
+		dadams("Douglas", "Adams", date::Date(2, 3, 2000), 3),
+		jrrtolkien("John Ronald Reuel", "Tolkien", date::Date(03, 01, 1892), 4),
+		acamus("Albert", "Camus", date::Date(7, 8, 1913), 5);
 
 
 	std::vector<author::Author> mesauteurs = { jkrowling, jdicker ,jrrtolkien,  acamus , dadams };
@@ -31,7 +24,7 @@ int main() {
 		sa("Le Seigneur des anneaux", jrrtolkien, "anglais", "fantasy", date::Date(1, 1, 1954), 59854631),
 		hobbit("Le Hobbit", jrrtolkien, "anglais", "fantasy", date::Date(1, 1, 1969), 59877731),
 		dispasteph("La Disparition de Stephanie Mailer", jdicker, "français", "Policier", date::Date(1, 3, 2018), 666543), //ajout possible constructeur de date avec uniquement mois,annee et juste annee
-		veritéhq("La Vérité sur l'affaire Harry Quebert",jdicker,"français","Policier",date::Date(19,9,2012),3329912);
+		veritéhq("La Vérité sur l'affaire Harry Quebert", jdicker, "français", "Policier", date::Date(19, 9, 2012), 3329912);
 
 	std::vector<book::Book> meslivres = { hgtg,hobbit,hpchambre,hpcoupe,hpphoenix,hpecolesorcier,hpprisonnier,hprelique,hpprince,sa,dispasteph,veritéhq,etranger };
 
@@ -41,34 +34,35 @@ int main() {
 
 
 	std::cout << clem << std::endl;
-
-	//library::Library lib({ hgtg,hobbit,hpchambre,hpcoupe,hpphoenix,hpecolesorcier,hpprisonnier,hprelique,hpprince,sa,dispasteph,veritéhq,etranger }, { clem,tom,jeanmich }, { jkrowling, jdicker ,jrrtolkien,  acamus , dadams },{});
 	library::Library lib(meslivres, meslecteurs, mesauteurs, {});
 
 
-
-//	lib.allbookofanauthor(jkrowling);
+	
+	//lib.allbookofanauthor(jkrowling);
 	
 	std::cout << sa.getstatusofbook() << std::endl;
 
 	lib.borrowbook(sa, date::Date(5, 12, 2021), clem);
-	//std::cout << sa.getstatusofbook()<<std::endl;
-	lib.borrowbook(hobbit, date::Date(5, 12, 2021), tom);
-	lib.borrowbook(hgtg, date::Date(5, 12, 2021), tom);
-
-	std::cout << tom.getlistborrowedbook().size();
-	// lib.printlistborrow();
+	
+	lib.borrowbook(hobbit, date::Date(6, 12, 2021), tom);
+	lib.borrowbook(hgtg, date::Date(2, 12, 2021), tom);
+	lib.printlistborrow();
+	//lib.restorebook(hgtg, tom);
+	lib.printlistborrow();
+	
+	lib.printlistborrow();
+	lib.rankingofreader();
 	lib.percentageofborrowedbooks();
-	/*
-	lib.restorebook(sa, clem);
+	
+	lib.restorebook(hgtg, tom);
 	std::cout << sa.getstatusofbook() << std::endl;
 	lib.percentageofborrowedbooks();
-	//lib.printlistborrow();
-	*/
+	lib.printlistborrow();
+	
 
 	lib.rankingofreader();
 
-
+	
 
 
 	return 0;

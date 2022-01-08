@@ -1,5 +1,6 @@
 #include "library.h"
-
+//#include<functional>
+#include <algorithm>
 namespace library {
 
 	Library::Library(std::vector<book::Book> listofbooks, std::vector<reader::Reader> listofreaders,
@@ -9,7 +10,9 @@ namespace library {
 
 
 	
-		std::vector<book::Book> Library::getlistofbooks() const
+	
+
+	std::vector<book::Book> Library::getlistofbooks() const
 		{
 			return _listofbooks;
 		}
@@ -29,7 +32,7 @@ namespace library {
 			_listofbooks.push_back(book);
 		}
 
-		void Library::setlistbook(std::vector<book::Book> list)
+		void Library::setlistbook(std::vector<book::Book> & list)
 		{
 			_listofbooks.insert(_listofbooks.end(), list.begin(), list.end());
 		}
@@ -95,9 +98,21 @@ namespace library {
 
 			borrow::Borrow B(b, d, r);
 			addlistofborrow(B);
-			b.setbookstatus(false);
-			b.addlistofborrower(r.getid()); //ajout du lecteur dans la liste des empreuteurs du livre
-			r.addlistborrowedbook(b.getIsbn()); //ajout de l'isbn du livre dans la liste des livres empruntés
+			
+			//cette boucle permet de modifier le satus du livre dans la liste de la bibliothèque sinon le satus et modifié uniquement dans le livre "original" et pas dans la version qui est dans la liste 
+			//ceci aurait aussi pu etre réglé en passant par des referances 
+			for (auto i = 0; i < (_listofbooks).size(); i++) {
+				if (_listofbooks.at(i).getTitle() == b.getTitle()) {
+					b.addlistofborrower(r.getid()); //ajout du lecteur dans la liste des empreuteurs du livre
+					_listofbooks.at(i).setbookstatus(false);
+				}
+			}
+			for (auto i = 0; i < (_listofreaders).size(); i++) {
+				if (_listofreaders.at(i).getid() == r.getid()) {
+					_listofreaders.at(i).setumberofborrowingbook(1);
+					r.addlistborrowedbook(b.getIsbn()); //ajout de l'isbn du livre dans la liste des livres empruntés
+				}
+			}
 		}
 
 	}
@@ -114,9 +129,24 @@ namespace library {
 		{
 
 			  delborrow(b);
-
-			b.setbookstatus(true);
+			 
 			std::cout << b.getTitle() << " a ete rendu." << std::endl;
+			
+			//cf commentaire de la meme boucle dans la fonction borrow ci dessus
+			for (auto i = 0; i != (_listofbooks).size(); i++) {
+				if (_listofbooks.at(i).getTitle() == b.getTitle()) {
+
+					_listofbooks.at(i).setbookstatus(true);
+				}
+
+			}
+
+			for (auto i = 0; i < (_listofreaders).size(); i++) {
+				if (_listofreaders.at(i).getid() == r.getid()) {
+					_listofreaders.at(i).setumberofborrowingbook(-1);
+
+				}
+			}
 		}
 	}
 
@@ -150,6 +180,8 @@ namespace library {
 	}
 	
 	
+
+
 	std::ostream& operator<<(std::ostream& os, const std::vector<borrow::Borrow>& vect)
 	{
 		for (auto d : vect) 
@@ -207,18 +239,52 @@ namespace library {
 	}
 		
 
-	double Library::percentageofborrowedbooks()
-	{
-		return 0.0;
-	}
+	
 
-	std::vector<std::string> Library::allbooksborrowed(reader::Reader r)
+	void Library::allbooksborrowed(reader::Reader r)
 	{
-		return std::vector<std::string>();
-	}
+		//cherche dans la liste des emprunts les livre empruntés par r
+		for (auto i = 0; i != (_listofborrow).size(); i++) {  
+			//verification de la corespondance entre l'id de r et celui de l'emprunteur
+			if ((_listofborrow.at(i).getborrowerid()) == r.getid()) {
 
-	std::vector<std::string> Library::rankingofreader()
+
+				//cherche dans la liste de de livre le livre ayant l'isbn recupéré dans la liste des emprunts
+				for (auto it = 0; it != (_listofbooks).size(); it++) {
+					if (_listofborrow.at(i).getbisbn() == _listofbooks.at(i).getIsbn()) {
+
+						//affiche le livre emprunté par r
+						std::cout << _listofbooks.at(i) << std::endl;
+					}
+				}
+
+			}
+
+		}
+		
+	}
+	
+	void Library::rankingofreader()
 	{
-		return std::vector<std::string>();
+		std::vector<reader::Reader> classement = _listofreaders;
+		
+		//std::reverse(classement.begin(), classement.end());
+		std::sort(classement.begin(), classement.end(), [](const reader::Reader r1, const reader::Reader r2) { return r1.getumberofborrowingbook() > r2.getumberofborrowingbook() ; });
+	 for(auto item : classement)
+		std::cout << item << std::endl;
+	
+	}
+void Library::percentageofborrowedbooks()
+	{
+		double numberofborrowedbook = 0;
+		for (auto i = 0; i != (_listofbooks).size(); i++) {
+			if (((_listofbooks.at(i)).bookstatus()) == 0) {
+				numberofborrowedbook ++;
+
+			}
+			
+		}
+
+		std::cout << "Le pourcentage de livres empruntes est de " <<(numberofborrowedbook * 100) / _listofbooks.size() << "%" << std::endl;
 	}
 };

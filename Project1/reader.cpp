@@ -6,6 +6,16 @@ namespace reader {
         setid();
     }
 
+    int Reader::getumberofborrowingbook() const
+    {
+        return _numberofborrowingbook;
+    }
+
+    void Reader::setumberofborrowingbook(int number)
+    {
+        _numberofborrowingbook += number;
+    }
+
 
     std::string reader::Reader::getfirstname() const
     {
@@ -49,7 +59,7 @@ namespace reader {
         os << r.getsurname();
         os << ", ";
         os << r.getid();
-
+        os << " ";
         return os;
 
     }

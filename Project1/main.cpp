@@ -42,25 +42,33 @@ int main() {
 
 	std::cout << clem << std::endl;
 
-	library::Library lib(meslivres, meslecteurs, mesauteurs,{});
+	//library::Library lib({ hgtg,hobbit,hpchambre,hpcoupe,hpphoenix,hpecolesorcier,hpprisonnier,hprelique,hpprince,sa,dispasteph,veritéhq,etranger }, { clem,tom,jeanmich }, { jkrowling, jdicker ,jrrtolkien,  acamus , dadams },{});
+	library::Library lib(meslivres, meslecteurs, mesauteurs, {});
 
 
 
-	lib.allbookofanauthor(jkrowling);
+//	lib.allbookofanauthor(jkrowling);
 	
 	std::cout << sa.getstatusofbook() << std::endl;
 
 	lib.borrowbook(sa, date::Date(5, 12, 2021), clem);
-	std::cout << sa.getstatusofbook()<<std::endl;
+	//std::cout << sa.getstatusofbook()<<std::endl;
+	lib.borrowbook(hobbit, date::Date(5, 12, 2021), tom);
+	lib.borrowbook(hgtg, date::Date(5, 12, 2021), tom);
 
-	 lib.printlistborrow();
-
+	std::cout << tom.getlistborrowedbook().size();
+	// lib.printlistborrow();
+	lib.percentageofborrowedbooks();
+	/*
 	lib.restorebook(sa, clem);
 	std::cout << sa.getstatusofbook() << std::endl;
-	 
+	lib.percentageofborrowedbooks();
+	//lib.printlistborrow();
+	*/
 
-	lib.printlistborrow();
-	
+	lib.rankingofreader();
+
+
 
 
 	return 0;

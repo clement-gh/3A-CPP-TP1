@@ -16,10 +16,12 @@ private:
 	std::string _surname; //Nom
 	std::string _id;
 	std::vector<int> _borrowedbooks;
-	
+	int _numberofborrowingbook =0 ;
 
 public:
 	Reader(std::string firstname, std::string surname);
+	int getumberofborrowingbook()const;
+	void setumberofborrowingbook(int number);
 
 	std::string getfirstname()const;
 	std::string getsurname()const;

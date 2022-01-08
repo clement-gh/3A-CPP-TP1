@@ -6,7 +6,7 @@ namespace library {
 	class Library
 	{
 	private:
-		std::vector<book::Book> _listofbooks= {};
+		std::vector<book::Book> _listofbooks = {};
 		std::vector<reader::Reader> _listofreaders = {};
 		std::vector<author::Author> _listofauthors = {};
 		std::vector<borrow::Borrow> _listofborrow = {};
@@ -22,7 +22,7 @@ namespace library {
 		//getteur setteur de la liste de livres
 		std::vector<book::Book> getlistofbooks() const;
 		void addlistofbooks(book::Book book);
-		void setlistbook(std::vector<book::Book> list);  //permet de rajouter à la suite du vector un autre vecteur , gain de temps à la création de la library
+		void setlistbook(std::vector<book::Book> & list);  //permet de rajouter à la suite du vector un autre vecteur , gain de temps à la création de la library
 
 		//getteur setteur de la liste de lecteurs
 		std::vector<reader::Reader> getlistofreaders() const;
@@ -50,10 +50,13 @@ namespace library {
 
 		//fonctions suplémentaires
 		void allbookofanauthor(author::Author a);
-		double percentageofborrowedbooks();
-		std::vector<std::string> allbooksborrowed(reader::Reader r);
-		std::vector<std::string> rankingofreader();
+		//double percentageofborrowedbooks()const;
+		void allbooksborrowed(reader::Reader r);
+		void rankingofreader();
+		void percentageofborrowedbooks();
+		
 	};
+
 	std::ostream& operator<<(std::ostream& os, const std::vector<borrow::Borrow> &vect);
 	std::ostream& operator<<(std::ostream& os, const std::vector<reader::Reader>& vect);
 	std::ostream& operator<<(std::ostream& os, const std::vector<author::Author>& vect);

@@ -22,7 +22,7 @@ namespace book {
 			bool bookstatus()const;
 			void setbookstatus(bool _isborrowed);
 			std::string getstatusofbook() const;
-			//std::string getborrower()const;
+
 			void addlistofborrower(std::string borrower);
 
 			bool lastborrower(std::string borrower );
@@ -35,7 +35,7 @@ namespace book {
 			std::string _category;
 			date::Date _pubDate;
 			int _isbn;
-			bool _isborrowed=true;
+			bool _isborrowed;
 			std::vector<std::string> _borrowedby;
 	};
 	std::ostream& operator<<(std::ostream& os, Book& b);

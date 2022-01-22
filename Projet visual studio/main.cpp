@@ -38,7 +38,7 @@ int main() {
 
 
 	
-	//lib.allbookofanauthor(jkrowling);
+	lib.allbookofanauthor(jkrowling);
 	
 	std::cout << sa.getstatusofbook() << std::endl;
 
@@ -47,7 +47,7 @@ int main() {
 	lib.borrowbook(hobbit, date::Date(6, 12, 2021), tom);
 	lib.borrowbook(hgtg, date::Date(2, 12, 2021), tom);
 	lib.printlistborrow();
-	//lib.restorebook(hgtg, tom);
+	lib.restorebook(hgtg, tom);
 	lib.printlistborrow();
 	
 	lib.printlistborrow();
